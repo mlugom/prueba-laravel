@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">Crear nuevo registro</div>
                     <div class="card-body">
-                        <form method="POST">
+                        <form method="POST" action="{{ route('registros.store') }}">
                             @csrf
                             <div>
                                 <label for="nombre" class="form-label">Nombre: </label>

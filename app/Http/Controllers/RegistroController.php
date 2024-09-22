@@ -38,7 +38,9 @@ class RegistroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Registro::create($request->all());
+
+        return redirect('registros.index');
     }
 
     /**
