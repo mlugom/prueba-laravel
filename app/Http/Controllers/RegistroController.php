@@ -40,7 +40,7 @@ class RegistroController extends Controller
     {
         Registro::create($request->all());
 
-        return redirect('registros.index');
+        return redirect(route('registros.index'));
     }
 
     /**
