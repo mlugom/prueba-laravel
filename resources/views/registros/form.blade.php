@@ -5,18 +5,25 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Crear nuevo registro</div>
+                    <div class="card-header">
+                        @if (isset($registro))
+                            Editar registro
+                        @else
+                            Crear nuevo registro
+                        @endif
+                    </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('registros.store') }}">
                             @csrf
                             <div>
                                 <label for="nombre" class="form-label">Nombre: </label>
-                                <input type="text" name="nombre" class="form-control" />
+                                <input type="text" name="nombre" class="form-control"
+                                    value="{{ old('nombre', $registro->nombre) }}" />
                             </div>
 
                             <div>
                                 <label for="descripcion" class="form-label">Descripción: </label>
-                                <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control"></textarea>
+                                <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control">{{ old('descripcion', $registro->descripcion) }}</textarea>
                             </div>
 
                             <div class="d-flex justify-content-center">
