@@ -1,5 +1,8 @@
-$("#registrosTable").DataTable({
-    data: data,
+var table = $("#registrosTable").DataTable({
+    ajax: {
+        url: jsonUrl,
+        dataSrc: 'data',
+    },
     columns: [
         { data: 'nombre' },
         { data: 'descripcion' },

@@ -32,7 +32,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/2.1.6/js/dataTables.js"></script>
     <script>
-        const data = {!! $registros !!};
+        const jsonUrl = "{{ route('registros.json') }}";
+        const csrfToken = "{{ csrf_token() }}";
         function goToEdit(id) {
             window.location.href = getEditUrl(id);
         }
