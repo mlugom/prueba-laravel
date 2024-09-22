@@ -56,7 +56,7 @@ class RegistroController extends Controller
      */
     public function edit(Registro $registro)
     {
-        return view("registros.edit", ["registro" => $registro]);
+        return view("registros.form", ["registro" => $registro]);
     }
 
     /**
