@@ -78,7 +78,7 @@ class RegistroController extends Controller
     {
         $registro->delete();
 
-        return redirect("registros.index");
+        return response()->json(["message" => "Eliminado correctamente"]);
     }
 
     public function getAll()
