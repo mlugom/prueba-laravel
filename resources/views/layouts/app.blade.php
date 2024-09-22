@@ -67,7 +67,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         Cerrar sesión
                                     </a>
@@ -83,9 +83,28 @@
             </div>
         </nav>
 
+        <div id="message-container">
+
+        </div>
+
         <main class="py-4">
             @yield('content')
         </main>
     </div>
+    <script>
+        function displayMessage(message) {
+            document.querySelector("#message-container").innerHTML = `
+                <div class="alert alert-success alert-dismissible w-50 text-center mx-auto mt-4 fade show" role="alert">
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                </div>
+            `
+        }
+
+        @if (session()->has('message'))
+            displayMessage("{{ session()->get('message') }}");
+        @endif
+    </script>
 </body>
+
 </html>
