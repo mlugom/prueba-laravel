@@ -84,8 +84,12 @@ class RegistroController extends Controller
     public function getAll()
     {
         $registros = Registro::all();
+        foreach ($registros as $registro) {
+            $registro->display_created_at = date("Y-m-d", strtotime($registro->created_at));
+            $registro->display_updated_at = date("Y-m-d", strtotime($registro->updated_at));
+        }
 
-        return response()->json($registros);
+        return response()->json(["data" => $registros->toArray()]);
     }
 
 }
