@@ -36,6 +36,55 @@ function generateEditButton(id) {
     return editButton;
 }
 
+function showAlert(id) {
+    const div = document.createElement("div");
+    div.id = "alert-container";
+    div.className = "fixed-top w-100 h-100 z-2 d-flex justify-content-center align-items-center";
+    div.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
+
+    const card = `
+        <div class="card w-75">
+            <div class="card-header">
+                Aviso
+            </div>
+            <div class="card-body d-flex flex-column align-items-center gap-5 p-3">
+                <h3>¿Seguro que desea eliminar el registro? Esta acción no se puede deshacer</h3>
+                <div class="d-flex justify-content-center gap-3">
+                    <button class="btn btn-primary" onclick="dismissAlert()">Cancelar</button>
+                    <button class="btn btn-danger" onclick="executeDelete(${id})">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    div.innerHTML = card;
+
+    document.body.appendChild(div);
+}
+
+function dismissAlert() {
+    const alertContainer = document.querySelector("#alert-container");
+    alertContainer.remove();
+}
+
+function executeDelete(id) {
+    $.ajax({
+        url: getDeleteUrl(id),
+        data: {
+            _token: csrfToken,
+        },
+        method: "delete",
+        success: (result) => {
+            dismissAlert();
+            table.ajax.reload();
+        },
+        error: (error) => {
+            console.log("There was an error");
+            console.log(error);
+        },
+    });
+}
+
 function generateDeleteButton(id) {
     const deleteButton = document.createElement("button");
     deleteButton.className = "btn btn-danger";
