@@ -1,9 +1,9 @@
 $("#registrosTable").DataTable({
-    ajax: "/registros-json",
+    data: data,
     columns: [
-        { data: 'name' },
-        { data: 'description' },
-        { data: 'created_at' },
-        { data: 'updated_at' },
+        { data: 'nombre' },
+        { data: 'descripcion' },
+        { data: 'display_created_at' },
+        { data: 'display_updated_at' },
     ],
 });
