@@ -30,7 +30,7 @@ class RegistroController extends Controller
      */
     public function create()
     {
-        return view("registros.form");
+        return view("registros.form", ["action" => route('registros.store')]);
     }
 
     /**
@@ -56,7 +56,10 @@ class RegistroController extends Controller
      */
     public function edit(Registro $registro)
     {
-        return view("registros.form", ["registro" => $registro]);
+        return view("registros.form", [
+            "registro" => $registro,
+            "action" => route('registros.update', $registro),
+        ]);
     }
 
     /**

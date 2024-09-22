@@ -13,8 +13,11 @@
                         @endif
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('registros.store') }}">
+                        <form method="POST" action="{{ $action }}">
                             @csrf
+                            @if (isset($registro))
+                               @method("put")
+                            @endif
                             <div>
                                 <label for="nombre" class="form-label">Nombre: </label>
                                 <input type="text" name="nombre" class="form-control"
