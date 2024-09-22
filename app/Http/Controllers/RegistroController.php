@@ -67,7 +67,8 @@ class RegistroController extends Controller
      */
     public function update(Request $request, Registro $registro)
     {
-        //
+        $registro->update($request->all());
+        return redirect(route('registros.index'));
     }
 
     /**
