@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -10,6 +11,9 @@
                             Editar registro
                         @else
                             Crear nuevo registro
+                            @php
+                                $registro = null;
+                            @endphp
                         @endif
                     </div>
                     <div class="card-body">
@@ -21,12 +25,12 @@
                             <div>
                                 <label for="nombre" class="form-label">Nombre: </label>
                                 <input type="text" name="nombre" class="form-control"
-                                    value="{{ old('nombre', $registro->nombre) }}" />
+                                    value="{{ old('nombre', $registro?->nombre) }}" />
                             </div>
 
                             <div>
                                 <label for="descripcion" class="form-label">Descripción: </label>
-                                <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control">{{ old('descripcion', $registro->descripcion) }}</textarea>
+                                <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control">{{ old('descripcion', $registro?->descripcion) }}</textarea>
                             </div>
 
                             <div class="d-flex justify-content-center">
