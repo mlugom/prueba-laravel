@@ -30,7 +30,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        @auth
+                            <li class="nav-item">
+                                <a href="{{ route('registros.index') }}" class="nav-link">Ver registros</a>
+                            </li>
 
+                            <li class="nav-item">
+                                <a href="{{ route('registros.create') }}" class="nav-link">Crear nuevo registro</a>
+                            </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
