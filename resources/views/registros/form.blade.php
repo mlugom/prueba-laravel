@@ -22,15 +22,21 @@
                             @if (isset($registro))
                                @method("put")
                             @endif
-                            <div>
+                            <div class="mb-2">
                                 <label for="nombre" class="form-label">Nombre: </label>
                                 <input type="text" name="nombre" class="form-control"
                                     value="{{ old('nombre', $registro?->nombre) }}" />
+                                @error('nombre')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div>
                                 <label for="descripcion" class="form-label">Descripción: </label>
                                 <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control">{{ old('descripcion', $registro?->descripcion) }}</textarea>
+                                @error('descripcion')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="d-flex justify-content-center">

@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class RegistroController extends Controller
 {
+    const VALIDATION_RULES = [
+        'nombre' => 'required',
+        'descripcion' => 'required',
+    ];
+
+    const VALIDATION_MESSAGES = [
+        'required' => 'Este campo es requerido',
+    ];
+
     /**
      * Display a listing of the resource.
      */
@@ -38,7 +47,8 @@ class RegistroController extends Controller
      */
     public function store(Request $request)
     {
-        Registro::create($request->all());
+        $validated = $request->validate(self::VALIDATION_RULES, self::VALIDATION_MESSAGES);
+        Registro::create($validated);
 
         return redirect(route('registros.index'));
     }
@@ -67,7 +77,10 @@ class RegistroController extends Controller
      */
     public function update(Request $request, Registro $registro)
     {
-        $registro->update($request->all());
+        $validated = $request->validate(self::VALIDATION_RULES, self::VALIDATION_MESSAGES);
+
+        $registro->update($validated);
+
         return redirect(route('registros.index'));
     }
 
@@ -91,5 +104,4 @@ class RegistroController extends Controller
 
         return response()->json(["data" => $registros->toArray()]);
     }
-
 }
