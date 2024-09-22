@@ -76,6 +76,10 @@ function executeDelete(id) {
         method: "delete",
         success: (result) => {
             dismissAlert();
+            if (result.message) {
+                console.log(result);
+                displayMessage(result.message);
+            }
             table.ajax.reload();
         },
         error: (error) => {
@@ -92,3 +96,5 @@ function generateDeleteButton(id) {
     deleteButton.innerHTML = "Eliminar";
     return deleteButton;
 }
+
+

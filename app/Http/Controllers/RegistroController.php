@@ -50,7 +50,7 @@ class RegistroController extends Controller
         $validated = $request->validate(self::VALIDATION_RULES, self::VALIDATION_MESSAGES);
         Registro::create($validated);
 
-        return redirect(route('registros.index'));
+        return redirect(route('registros.index'))->with('message', 'Registro creado exitosamente');
     }
 
     /**
@@ -81,7 +81,7 @@ class RegistroController extends Controller
 
         $registro->update($validated);
 
-        return redirect(route('registros.index'));
+        return redirect(route('registros.index'))->with('message', 'Registro editado exitosamente');
     }
 
     /**
@@ -91,7 +91,7 @@ class RegistroController extends Controller
     {
         $registro->delete();
 
-        return response()->json(["message" => "Eliminado correctamente"]);
+        return response()->json(["message" => "Registro eliminado correctamente"]);
     }
 
     public function getAll()
