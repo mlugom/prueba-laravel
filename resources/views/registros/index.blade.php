@@ -11,7 +11,8 @@
                             onclick="window.location.href = `{{ route('registros.create') }}`">Crear nuevo registro</button>
                     </div>
                 @else
-                    <table id="registrosTable" class="display">
+                    <h1 class="text-center">Registros</h1>
+                    <table id="registrosTable" class="table table-striped">
                         <thead>
                             <tr>
                                 <th>Nombre</th>
@@ -29,5 +30,8 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/2.1.6/js/dataTables.js"></script>
+    <script>
+        const data = {!! $registros !!};
+    </script>
     <script src="{{ asset('js/table.js') }}"></script>
 @endsection
