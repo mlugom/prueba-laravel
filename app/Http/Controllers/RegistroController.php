@@ -12,7 +12,12 @@ class RegistroController extends Controller
      */
     public function index()
     {
-        //
+        $registros = Registro::all();
+        $context = [
+            'registros' => $registros,
+        ];
+
+        return view("registros.index", $context);
     }
 
     /**
@@ -20,7 +25,7 @@ class RegistroController extends Controller
      */
     public function create()
     {
-        //
+        return view("registros.form");
     }
 
     /**
@@ -44,7 +49,7 @@ class RegistroController extends Controller
      */
     public function edit(Registro $registro)
     {
-        //
+        return view("registros.edit", ["registro" => $registro]);
     }
 
     /**
@@ -60,6 +65,16 @@ class RegistroController extends Controller
      */
     public function destroy(Registro $registro)
     {
-        //
+        $registro->delete();
+
+        return redirect("registros.index");
     }
+
+    public function getAll()
+    {
+        $registros = Registro::all();
+
+        return response()->json($registros);
+    }
+
 }
