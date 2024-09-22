@@ -19,6 +19,7 @@
                                 <th>Descripción</th>
                                 <th>Fecha de creación</th>
                                 <th>Fecha de modificación</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,6 +33,15 @@
     <script src="https://cdn.datatables.net/2.1.6/js/dataTables.js"></script>
     <script>
         const data = {!! $registros !!};
+        function goToEdit(id) {
+            window.location.href = getEditUrl(id);
+        }
+        function getEditUrl(id) {
+            return "{{ route('registros.edit', ':id') }}".replace(':id', id);
+        }
+        function getDeleteUrl(id) {
+            return "{{ route('registros.destroy', ':id') }}".replace(':id', id);
+        }
     </script>
     <script src="{{ asset('js/table.js') }}"></script>
 @endsection
