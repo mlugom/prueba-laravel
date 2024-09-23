@@ -34,6 +34,7 @@ composer install
 npm install
 ```
 En caso de recibir algún mensaje de error al ejecutar composer install, es posible que sea por alguna extensión no encontrada. El problema se soluciona habilitando o instalando la extensión que indica el sistema; una vez habilitada, ejecutar nuevamente el paso 2.
+
 3. Crear archivo .env, utilizando como base el archivo .env.example
 ```bash
 cp .env.example .env
@@ -46,7 +47,8 @@ APP_FAKER_LOCALE=es_CO
 ```bash
 php artisan migrate
 ```
-Es posible que se reciba un prompt indicando que no existe archivo de base de datos, en cuyo caso, basta con indicar 'Yes' o 'Sí'
+Es posible que se reciba un prompt indicando que no existe archivo de base de datos, en cuyo caso, basta con indicar 'Yes' o 'Sí'.
+
 6. Generar llave de encriptación para la aplicación
 ```bash
 php artisan key:generate
