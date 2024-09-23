@@ -59,3 +59,32 @@ y
 ```bash
 npm run dev
 ```
+
+## Instrucciones de uso
+Al abrir la aplicación en un navegador, automáticamente redireccionará a la pantalla de inicio de sesión si el usuario no está autenticado
+![Pantalla de login](screenshots/login.png)
+
+Se debe proceder a ingresar las credenciales del usuario, o a registrarse en caso de no estar registrado. Para registrarse, se debe dar clic en el enlace de la parte superior derecha.
+![Pantalla de registro](screenshots/register.png)
+Se debe tener presente que la contraseña debe igualar o superar los 8 caracteres.
+
+Una vez iniciada la sesión, se mostrará la pantalla de home
+![Pantalla de home](screenshots/home.png)
+
+En la barra de navegación, se puede acceder a la lista de registros o al formulario de creación de los mismos.
+![Pantalla de registros vacía](screenshots/registros_empty.png)
+
+Inicialmente se muestra un mensaje que informa que no hay registros, por lo cuál se deben crear algunos registros primero.
+![Creación de registros](screenshots/create_registro.png)
+Si se intenta crear un registro con datos faltantes, aparecerá un error y no permitirá crearlo hasta que se corrija.
+![Error de campo requerido](screenshots/required.png)
+
+Tras crear un registro, la aplicación redirige a la pantalla de registros, mostrando un mensaje de éxito en la creación que puede ser cerrado con su respectivo botón.
+![Redirección tras creación](screenshots/registros_after_creation.png)
+
+Los registros se pueden editar y eliminar, tal como se observa. Al dar clic en editar un registro, se mostrará el formulario de edición que coincide en campos con el formulario de creación.
+![Edición de registros](screenshots/edit_registro.png)
+
+Al terminar la edición del registro, se redirigirá nuevamente a la pantalla de registros, ahora con un mensaje de éxito en la edición del registro.
+![Redirección tras edición](screenshots/registros_after_update.png)
+
