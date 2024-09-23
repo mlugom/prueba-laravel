@@ -88,3 +88,13 @@ Los registros se pueden editar y eliminar, tal como se observa. Al dar clic en e
 Al terminar la edición del registro, se redirigirá nuevamente a la pantalla de registros, ahora con un mensaje de éxito en la edición del registro.
 ![Redirección tras edición](screenshots/registros_after_update.png)
 
+Al intentar eliminar un registro, aparecerá una pantalla de alerta
+![Alerta de eliminación](screenshots/delete_alert.png)
+
+Con la cual se puede decidir si se desea eliminar definitivamente el registro o no. Para desistir de eliminarlo, basta con presionar el botón de "cancelar". Para eliminarlo, se debe presionar el botón de "confirmar". Con ello se desaparecerá la alerta y el registro será eliminado, apareciendo un mensaje de éxito en la eliminación.
+![Eliminación de registro](screenshots/registros_after_deletion.png)
+
+Finalmente, se puede cerrar la sesión dando clic en el menú de la parte superior derecha y seleccionando "Cerrar sesión".
+![Menú desplegado](screenshots/menu_desplegado.png)
+
+Y la aplicación redirigirá nuevamente a la pantalla de inicio de sesión.
