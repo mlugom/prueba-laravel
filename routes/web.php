@@ -9,6 +9,10 @@ require __DIR__.'/auth.php';
 
 Auth::routes();
 
+Route::get('/home', function () {
+    return redirect(route('home'));
+})->name('dashboard');
+
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function () {
