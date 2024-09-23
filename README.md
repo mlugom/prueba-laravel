@@ -33,3 +33,28 @@ cd prueba-laravel
 composer install
 npm install
 ```
+3. Crear archivo .env, utilizando como base el archivo .env.example
+```bash
+cp .env.example .env
+```
+4. Asegurarse de cambiar los siguientes contenidos en .env
+```.env
+APP_FAKER_LOCALE=es_CO
+```
+5. Ejecutar migraciones
+```bash
+php artisan migrate
+```
+Es posible que se reciba un prompt indicando que no existe archivo de base de datos, en cuyo caso, basta con indicar 'Yes' o 'Sí'
+6. Generar llave de encriptación para la aplicación
+```bash
+php artisan key:generate
+```
+7. Ejecutar la aplicación, corriendo de manera simultánea los siguientes comandos en dos terminales distintas:
+```bash
+php artisan serve
+```
+y
+```bash
+npm run dev
+```
