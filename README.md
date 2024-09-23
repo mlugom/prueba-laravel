@@ -33,6 +33,7 @@ cd prueba-laravel
 composer install
 npm install
 ```
+En caso de recibir algún mensaje de error al ejecutar composer install, es posible que sea por alguna extensión no encontrada. El problema se soluciona habilitando o instalando la extensión que indica el sistema; una vez habilitada, ejecutar nuevamente el paso 2.
 3. Crear archivo .env, utilizando como base el archivo .env.example
 ```bash
 cp .env.example .env
